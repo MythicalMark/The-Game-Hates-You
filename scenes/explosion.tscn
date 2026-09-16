@@ -1,0 +1,97 @@
+[gd_scene format=3 uid="uid://bpfbtmrfo8bq5"]
+
+[ext_resource type="Texture2D" uid="uid://0mnf2abkdgj4" path="res://assets/explosion pack 1/Explosions pack/explosion-1-g/spritesheet.png" id="1_17npe"]
+[ext_resource type="Texture2D" uid="uid://cteshbautp8gw" path="res://assets/bomb.png" id="2_nfeox"]
+[ext_resource type="Script" uid="uid://ber820osr3l5a" path="res://scripts/explosion.gd" id="3_aw4cw"]
+[ext_resource type="AudioStream" uid="uid://dpva45odf1fkx" path="res://Atomic Explosion - Meme plantilla.mp3" id="4_3el85"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nfeox"]
+atlas = ExtResource("1_17npe")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aw4cw"]
+atlas = ExtResource("1_17npe")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3el85"]
+atlas = ExtResource("1_17npe")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hbmxj"]
+atlas = ExtResource("1_17npe")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xfoey"]
+atlas = ExtResource("1_17npe")
+region = Rect2(192, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v8gpv"]
+atlas = ExtResource("1_17npe")
+region = Rect2(240, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cun36"]
+atlas = ExtResource("1_17npe")
+region = Rect2(288, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_06txj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nfeox")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aw4cw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3el85")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hbmxj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xfoey")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v8gpv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cun36")
+}],
+"loop": 0,
+"name": &"Explosion",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_nfeox")
+}],
+"loop": 1,
+"name": &"bomb",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_06txj"]
+size = Vector2(690.0001, 840.00024)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" unique_id=487226553]
+position = Vector2(-1, 0)
+scale = Vector2(0.1, 0.1)
+sprite_frames = SubResource("SpriteFrames_06txj")
+animation = &"Explosion"
+autoplay = "bomb"
+frame = 6
+frame_progress = 1.0
+script = ExtResource("3_aw4cw")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1503879384]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=736656092]
+position = Vector2(-4.999976, 119.99997)
+scale = Vector2(0.9999997, 0.9999997)
+shape = SubResource("RectangleShape2D_06txj")
+
+[node name="ExplosionSound" type="AudioStreamPlayer2D" parent="." unique_id=58162578]
+stream = ExtResource("4_3el85")
+volume_db = 10.0
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

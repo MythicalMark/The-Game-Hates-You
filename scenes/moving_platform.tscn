@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://clwdohxf13u4s"]
+
+[ext_resource type="Script" uid="uid://c288gch1nt70u" path="res://scripts/moving_platform.gd" id="1_1tdcd"]
+[ext_resource type="Texture2D" uid="uid://dx178q12i6ott" path="res://assets/pixel-adventure-1 2/Free/Traps/Blocks/Idle.png" id="2_mb26n"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_06txj"]
+size = Vector2(16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jjc5n"]
+size = Vector2(4.5, 112)
+
+[node name="MovingPlatform" type="AnimatableBody2D" unique_id=1135899450]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_1tdcd")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1566276969]
+texture = ExtResource("2_mb26n")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1713884356]
+shape = SubResource("RectangleShape2D_06txj")
+
+[node name="DetectionArea" type="Area2D" parent="." unique_id=641986521]
+disable_mode = 2
+collision_layer = 2
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea" unique_id=1502582047]
+position = Vector2(-24, -32)
+shape = SubResource("RectangleShape2D_jjc5n")
+
+[connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]

@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://bqlih27l5y6f5"]
+
+[ext_resource type="Script" uid="uid://cqvgamg17b015" path="res://scripts/trap.gd" id="1_62q8x"]
+[ext_resource type="Texture2D" uid="uid://df4xuntuxlddf" path="res://assets/pixel-adventure-1 2/Free/Traps/Spikes/Idle.png" id="2_aucmg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tk2q1"]
+size = Vector2(15, 7)
+
+[node name="Area2D" type="Area2D" unique_id=1108781714]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_62q8x")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1896525679]
+texture = ExtResource("2_aucmg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=983739530]
+position = Vector2(-0.5, 4.5)
+shape = SubResource("RectangleShape2D_tk2q1")
+
+[node name="Timer" type="Timer" parent="." unique_id=2081904460]
+wait_time = 1.5
+one_shot = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

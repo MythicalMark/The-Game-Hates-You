@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://b35u5sxfu0nlw"]
+
+[ext_resource type="Texture2D" uid="uid://dx178q12i6ott" path="res://assets/pixel-adventure-1 2/Free/Traps/Blocks/Idle.png" id="1_mbltr"]
+[ext_resource type="PackedScene" uid="uid://bqlih27l5y6f5" path="res://scenes/trap.tscn" id="2_ohfom"]
+
+[node name="Death_Wall" type="AnimatableBody2D" unique_id=538334241]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1487698458]
+position = Vector2(-8, -1)
+texture = ExtResource("1_mbltr")
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=636287413]
+position = Vector2(7, -1)
+texture = ExtResource("1_mbltr")
+
+[node name="Area2D" parent="." unique_id=1108781714 instance=ExtResource("2_ohfom")]
+position = Vector2(-9, 15)
+rotation = 3.1415927
+
+[node name="Area2D2" parent="." unique_id=2072913778 instance=ExtResource("2_ohfom")]
+position = Vector2(7, 15)
+rotation = 3.1415927

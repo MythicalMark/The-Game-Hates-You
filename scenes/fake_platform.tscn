@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://d3rhwyj3ttcj7"]
+
+[ext_resource type="Script" uid="uid://bo6k23if0bhe7" path="res://scenes/fake_platform.gd" id="1_0mjb7"]
+[ext_resource type="Texture2D" uid="uid://dx178q12i6ott" path="res://assets/pixel-adventure-1 2/Free/Traps/Blocks/Idle.png" id="1_pgsr4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0mjb7"]
+size = Vector2(16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6l46p"]
+size = Vector2(24, 24)
+
+[node name="FakePlatform" type="AnimatableBody2D" unique_id=1876073383]
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("1_0mjb7")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=311919555]
+texture = ExtResource("1_pgsr4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=909716444]
+shape = SubResource("RectangleShape2D_0mjb7")
+disabled = true
+
+[node name="DetectionZone" type="Area2D" parent="." unique_id=206333115]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionZone" unique_id=1484227689]
+shape = SubResource("RectangleShape2D_6l46p")
+
+[connection signal="body_entered" from="DetectionZone" to="." method="_on_detection_zone_body_entered"]

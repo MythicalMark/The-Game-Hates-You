@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://bmdp1i3yh1bd8"]
+
+[ext_resource type="Script" uid="uid://dk1lxmqvmd7b8" path="res://scripts/ending_screen.gd" id="1_61pod"]
+[ext_resource type="FontFile" uid="uid://cqnqpidr2kfgg" path="res://Pizza Time.otf" id="2_4vp0n"]
+
+[node name="EndingScreen" type="Control" unique_id=835368102]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_61pod")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=154042775]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="." unique_id=877999178]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 205.0
+offset_right = 1916.0
+offset_bottom = 460.0
+theme_override_fonts/font = ExtResource("2_4vp0n")
+theme_override_font_sizes/font_size = 60
+text = "Thank you for playing my Game! 
+I hope you enjoyed playing it as much as I did making it!
+This is my first ever finished game so I really hope you enjoyed it!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="." unique_id=521716447]
+layout_mode = 0
+offset_left = 658.0
+offset_top = 641.0
+offset_right = 1211.0
+offset_bottom = 786.0
+theme_override_fonts/font = ExtResource("2_4vp0n")
+theme_override_font_sizes/font_size = 100
+text = "Main Menu"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

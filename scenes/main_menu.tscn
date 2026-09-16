@@ -1,0 +1,87 @@
+[gd_scene format=3 uid="uid://d3ekbds0fxc3b"]
+
+[ext_resource type="Script" uid="uid://cgunt1addt2oj" path="res://scripts/main_menu.gd" id="1_l6cm7"]
+[ext_resource type="Texture2D" uid="uid://3wygtme8gq26" path="res://scenes/background.png" id="2_ekxnf"]
+[ext_resource type="FontFile" uid="uid://cqnqpidr2kfgg" path="res://Pizza Time.otf" id="3_bqqt6"]
+
+[node name="MainMenu" type="Control" unique_id=1468386082]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_l6cm7")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=2046094491]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_ekxnf")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=323884680]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.3882353)
+
+[node name="Label" type="Label" parent="." unique_id=1202701299]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -82.5
+offset_top = -239.5
+offset_right = 82.5
+offset_bottom = -216.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_bqqt6")
+theme_override_font_sizes/font_size = 75
+text = "The Game Hates  You"
+horizontal_alignment = 2
+
+[node name="Button" type="Button" parent="." unique_id=531542350]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -82.5
+offset_top = -15.5
+offset_right = 82.5
+offset_bottom = 15.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_bqqt6")
+theme_override_font_sizes/font_size = 75
+text = "Level Select"
+
+[node name="Button2" type="Button" parent="." unique_id=907846373]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -198.5
+offset_top = 144.5
+offset_right = 198.5
+offset_bottom = 255.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_bqqt6")
+theme_override_font_sizes/font_size = 75
+text = "Quit Game"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]

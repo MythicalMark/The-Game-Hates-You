@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://b7wp4crdiyxv"]
+
+[ext_resource type="Texture2D" uid="uid://dx178q12i6ott" path="res://assets/pixel-adventure-1 2/Free/Traps/Blocks/Idle.png" id="1_hwnnf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_06txj"]
+size = Vector2(16, 16)
+
+[node name="Real_platform" type="StaticBody2D" unique_id=1116936223]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=453906875]
+texture = ExtResource("1_hwnnf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1846088707]
+shape = SubResource("RectangleShape2D_06txj")

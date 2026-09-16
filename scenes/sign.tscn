@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://coa2qk70pojd1"]
+
+[ext_resource type="Script" uid="uid://duf0kor00hbr5" path="res://scripts/sign.gd" id="1_kd50q"]
+[ext_resource type="Texture2D" uid="uid://blcp0w73algvu" path="res://assets/sign.png" id="1_shbub"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_06txj"]
+size = Vector2(39, 46)
+
+[node name="StaticBody2D" type="StaticBody2D" unique_id=1492581556]
+z_index = -1
+script = ExtResource("1_kd50q")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1077869800]
+position = Vector2(3.8146973e-06, 7.6293945e-06)
+scale = Vector2(0.03930303, 0.039303035)
+texture = ExtResource("1_shbub")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=332028016]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=225723937]
+position = Vector2(0.5, 1)
+shape = SubResource("RectangleShape2D_06txj")
+
+[node name="Label" type="Label" parent="." unique_id=1318141785]
+visible = false
+visibility_layer = 3
+offset_left = -55.0
+offset_top = -86.0
+offset_right = 56.0
+offset_bottom = -37.0
+text = "Hold Space to 
+Fly"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

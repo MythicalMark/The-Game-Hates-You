@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://bqs43s1hahhst"]
+
+[ext_resource type="Texture2D" uid="uid://nqwwrtrvmfqg" path="res://assets/lamppost.png" id="1_72t4t"]
+
+[sub_resource type="Gradient" id="Gradient_hxjgs"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_06txj"]
+gradient = SubResource("Gradient_hxjgs")
+width = 100
+height = 100
+fill = 1
+fill_from = Vector2(0.47863248, 0.5)
+fill_to = Vector2(0.8333333, 0.17521368)
+
+[node name="StaticBody2D" type="StaticBody2D" unique_id=1582702381]
+z_index = -1
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=860582323]
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("1_72t4t")
+flip_h = true
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=1523256532]
+position = Vector2(-10, -5)
+texture = SubResource("GradientTexture2D_06txj")
