@@ -8,7 +8,7 @@ extends CharacterBody2D
 
 const SPEED := 150.0
 const JUMP_VELOCITY := -300.0
-const MAX_JUMPS := 1
+
 var gravity_multiplier = 1
 
 var jumps_used := 0
@@ -41,14 +41,12 @@ func _physics_process(delta: float) -> void:
 	if in_fly_zone and Input.is_action_pressed("jump"):
 		velocity.y = -fly_speed
 
-	# Reset jumps when the player lands.
-	if is_on_floor():
-		jumps_used = 0
-
-	# Handle first jump and double jump.
-	if Input.is_action_just_pressed("jump") and jumps_used < MAX_JUMPS:
+	#Handle jump
+	if Input.is_action_just_pressed("jump"):
 		velocity.y = JUMP_VELOCITY
-		jumps_used += 1
+	
+
+	
 
 		
 
